@@ -65,6 +65,37 @@ async function run() {
         .updateOne(query, updateDoc);
       res.send(result)
     });
+
+
+        //---------------------DELETE REQ -------------------------//
+        app.delete('/task-delete', async (req, res) => {
+            const { email, id} = req?.query;
+      
+            // const updateDoc = {
+            //   $set: {
+            //     status: shouldgo,
+            //   },
+            // };
+            const query = {
+                  _id: new ObjectId(id)
+            }
+      
+            const result = await client
+              .db('taskDB').collection(email).deleteOne(query)
+            console.log(email, id)
+            res.send(result)
+          });
+
+
+
+
+
+
+
+
+
+
+
   } finally {
     // Close the MongoDB client connection
     //     await client.close();
