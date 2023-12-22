@@ -71,11 +71,6 @@ async function run() {
         app.delete('/task-delete', async (req, res) => {
             const { email, id} = req?.query;
       
-            // const updateDoc = {
-            //   $set: {
-            //     status: shouldgo,
-            //   },
-            // };
             const query = {
                   _id: new ObjectId(id)
             }
